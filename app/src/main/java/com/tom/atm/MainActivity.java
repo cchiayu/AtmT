@@ -14,10 +14,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_LOGIN = 21;
     boolean logon = false;
     private PokerCard card;
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        card = findViewById(R.id.card);
+        card = findViewById(R.id.card);// import card.xml
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                card.setValue(51);
+                card.setValue(random.nextInt(52));//隨機生成一個數字
             }
         });
         if (!logon) {

@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class PokerCard extends ConstraintLayout {
@@ -31,8 +33,8 @@ public class PokerCard extends ConstraintLayout {
 
     public void setValue(int value) {
         this.value = value;
-        int type = value/13;
-        int point = (value%13) + 1;
+        int type = value/13;//花色
+        int point = (value%13) + 1;//數字
         switch(type) {
             case 0:
                 typeImage.setImageResource(R.drawable.clover);
